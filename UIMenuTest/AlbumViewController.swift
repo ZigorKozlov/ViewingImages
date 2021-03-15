@@ -8,7 +8,7 @@
 import UIKit
 
 class AlbumViewController: UIViewController {
-    
+    var activityViewCOntroller: UIActivityViewController?
     private enum Section {
         case main
     }
@@ -72,18 +72,24 @@ extension AlbumViewController {
 
 extension AlbumViewController: UICollectionViewDelegate {
     internal func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        configurateContextMenu()
+        configurateContextMenu(indexPath: indexPath)
     }
     
-    private func configurateContextMenu() -> UIContextMenuConfiguration {
+    private func configurateContextMenu(indexPath: IndexPath) -> UIContextMenuConfiguration {
         let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
             
             let copy = UIAction(title: "Copy", image: UIImage(systemName: "doc.on.doc"), identifier: nil, discoverabilityTitle: nil, state: .off) { (action) in
                 print("COPY")
             }
             
-            let share = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up"), identifier: nil, discoverabilityTitle: nil, state: .off) { (action) in
-                print("SHARE")
+            let share = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up"), identifier: nil, discoverabilityTitle: nil, state: .off) { [weak self] (action) in
+                if let image = UIImage(named: animals[indexPath.row].name){
+                    let items: [Any] = [image]
+                    self?.activityViewCOntroller = UIActivityViewController(activityItems: items, applicationActivities: nil)
+                    if let activityViewCOntroller = self?.activityViewCOntroller {
+                        self?.present(activityViewCOntroller, animated: true, completion: nil)
+                    }
+                }
             }
             
             return UIMenu(title: "Options", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [copy, share])

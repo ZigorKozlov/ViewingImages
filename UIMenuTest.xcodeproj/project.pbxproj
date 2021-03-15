@@ -25,6 +25,9 @@
 		7663B59725FEB94B0004F645 /* MyUmageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663B59625FEB94B0004F645 /* MyUmageView.swift */; };
 		7663B59C25FEC80A0004F645 /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663B59B25FEC80A0004F645 /* SingleImageViewController.swift */; };
 		7663B59F25FECD360004F645 /* ImageScrolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7663B59E25FECD360004F645 /* ImageScrolView.swift */; };
+		769E29A025FFE29E00A35BB1 /* gachi2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 769E299D25FFE29E00A35BB1 /* gachi2.jpeg */; };
+		769E29A125FFE29E00A35BB1 /* gachi3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 769E299E25FFE29E00A35BB1 /* gachi3.jpeg */; };
+		769E29A225FFE29E00A35BB1 /* gachi1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 769E299F25FFE29E00A35BB1 /* gachi1.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		7663B59625FEB94B0004F645 /* MyUmageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUmageView.swift; sourceTree = "<group>"; };
 		7663B59B25FEC80A0004F645 /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
 		7663B59E25FECD360004F645 /* ImageScrolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrolView.swift; sourceTree = "<group>"; };
+		769E299D25FFE29E00A35BB1 /* gachi2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = gachi2.jpeg; path = ../../../../../Downloads/gachi2.jpeg; sourceTree = "<group>"; };
+		769E299E25FFE29E00A35BB1 /* gachi3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = gachi3.jpeg; path = ../../../../../Downloads/gachi3.jpeg; sourceTree = "<group>"; };
+		769E299F25FFE29E00A35BB1 /* gachi1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = gachi1.jpeg; path = ../../../../../Downloads/gachi1.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,9 @@
 				7663B56125FE70B80004F645 /* dolphin.jpg */,
 				7663B56625FE70B80004F645 /* tiger.jpg */,
 				7663B56425FE70B80004F645 /* snake.jpg */,
+				769E299F25FFE29E00A35BB1 /* gachi1.jpeg */,
+				769E299D25FFE29E00A35BB1 /* gachi2.jpeg */,
+				769E299E25FFE29E00A35BB1 /* gachi3.jpeg */,
 			);
 			path = Pictures;
 			sourceTree = "<group>";
@@ -172,8 +181,11 @@
 				7663B56825FE70B80004F645 /* bird.jpg in Resources */,
 				7663B56D25FE70B80004F645 /* cat.jpg in Resources */,
 				7663B56E25FE70B80004F645 /* tiger.jpg in Resources */,
+				769E29A125FFE29E00A35BB1 /* gachi3.jpeg in Resources */,
 				7663B54A25FE5B4D0004F645 /* LaunchScreen.storyboard in Resources */,
+				769E29A025FFE29E00A35BB1 /* gachi2.jpeg in Resources */,
 				7663B56A25FE70B80004F645 /* lion.jpg in Resources */,
+				769E29A225FFE29E00A35BB1 /* gachi1.jpeg in Resources */,
 				7663B56925FE70B80004F645 /* dolphin.jpg in Resources */,
 				7663B54725FE5B4D0004F645 /* Assets.xcassets in Resources */,
 				7663B56C25FE70B80004F645 /* snake.jpg in Resources */,

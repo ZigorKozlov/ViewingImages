@@ -20,4 +20,7 @@ let animals = [
     Animal(name: "dolphin.jpg"),
     Animal(name: "tiger.jpg"),
     Animal(name: "snake.jpg"),
+    Animal(name: "gachi1.jpeg"),
+    Animal(name: "gachi2.jpeg"),
+    Animal(name: "gachi3.jpeg")
 ]
