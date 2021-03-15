@@ -11,10 +11,13 @@ class MyUmageView: UIImageView {
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        
-        print("touchesEnded")
-        
         //open the picture for viewe
+        
+        if case let navigation as UINavigationController = UIApplication.shared.windows.first?.rootViewController,
+           case let vc as AlbumViewController = navigation.viewControllers.first {
+            guard let showingImage = self.image else { return }
+            vc.presentSingleImageVC(image: showingImage)
+        }
         
     }
     /*

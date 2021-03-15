@@ -9,12 +9,12 @@ import UIKit
 
 class AlbumViewController: UIViewController {
     
-    enum Section {
+    private enum Section {
         case main
     }
     
-    var collectionView: UICollectionView!
-    var dataSource: UICollectionViewDiffableDataSource<Section, Animal>!
+    private var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Animal>!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Album"
@@ -25,7 +25,7 @@ class AlbumViewController: UIViewController {
 
 
 extension AlbumViewController {
-    func createLayut() -> UICollectionViewLayout {
+    private func createLayut() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(200.0))
@@ -37,7 +37,7 @@ extension AlbumViewController {
         return layout
     }
     
-    func configurateHierarchy() {
+    private func configurateHierarchy() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayut())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .white
@@ -48,7 +48,7 @@ extension AlbumViewController {
 }
 
 extension AlbumViewController {
-    func configurateDataSource() {
+    private func configurateDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Animal>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, animal) -> UICollectionViewCell? in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlbumCell.reuseIdetifire, for: indexPath) as? AlbumCell else { fatalError("Could not create cell")}
             
@@ -60,7 +60,7 @@ extension AlbumViewController {
         createSnapShot()
     }
     
-    func createSnapShot() {
+    private func createSnapShot() {
         var snapShot = NSDiffableDataSourceSnapshot<Section, Animal>()
         
         snapShot.appendSections([.main])
@@ -71,11 +71,11 @@ extension AlbumViewController {
 }
 
 extension AlbumViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+    internal func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         configurateContextMenu()
     }
     
-    func configurateContextMenu() -> UIContextMenuConfiguration {
+    private func configurateContextMenu() -> UIContextMenuConfiguration {
         let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
             
             let copy = UIAction(title: "Copy", image: UIImage(systemName: "doc.on.doc"), identifier: nil, discoverabilityTitle: nil, state: .off) { (action) in
@@ -89,5 +89,16 @@ extension AlbumViewController: UICollectionViewDelegate {
             return UIMenu(title: "Options", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [copy, share])
         }
         return context
+    }
+}
+
+//show SingleVCRepository
+extension AlbumViewController {
+    func presentSingleImageVC(image: UIImage) {
+        let viewController = SingleImageViewController()
+        viewController.image = image
+        viewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(viewController, animated: true)
+        //present(viewController, animated: true, completion: nil)
     }
 }

@@ -24,7 +24,7 @@ class AlbumCell: UICollectionViewCell {
 }
 
 extension AlbumCell {
-    func configurate() {
+    private func configurate() {
         imageView.isUserInteractionEnabled = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
