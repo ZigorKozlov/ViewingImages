@@ -25,9 +25,10 @@ class AlbumCell: UICollectionViewCell {
 
 extension AlbumCell {
     private func configurate() {
+        imageView.contentMode = .scaleAspectFill
         imageView.isUserInteractionEnabled = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        //imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         imageView.layer.cornerRadius = 10.0
         imageView.layer.masksToBounds = true
         contentView.addSubview(imageView)
