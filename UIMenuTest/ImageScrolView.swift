@@ -9,14 +9,36 @@ import UIKit
 
 class ImageScrolView: UIScrollView, UIScrollViewDelegate {
     
-    var isBarHiden: SingleImageViewController.ButtonShowOrHideChoice = .show
+
+    
+    weak var rootViewController: UIViewController?
+
+    var isBarHiden: SingleImageViewController.ButtonShowOrHideChoice = .show {
+        willSet {
+            if newValue == .show {
+                
+            }
+        }
+    }
+        
     var imageZoomView: UIImageView?
     
     var zoomingTap =  UITapGestureRecognizer()
     var showButtonsTap =  UITapGestureRecognizer()
     
-    private func configurateGestureRecognizers() {
+    required init(frame: CGRect, rootViewController: UIViewController) {
+        super.init(frame: frame)
+        self.rootViewController = rootViewController
         
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
+    private func configurateGestureRecognizers() {
         
         zoomingTap.addTarget(self, action: #selector(handleZoomingDoubleTap(sender:)))
         showButtonsTap.addTarget(self, action: #selector( handlerShowButtonsTap(sender:)))
@@ -31,6 +53,7 @@ class ImageScrolView: UIScrollView, UIScrollViewDelegate {
     }
     
     func set(image: UIImage) {
+
         imageZoomView?.isUserInteractionEnabled = true
         configurateGestureRecognizers()
         
@@ -48,6 +71,9 @@ class ImageScrolView: UIScrollView, UIScrollViewDelegate {
         self.addSubview(imageZoomView!)
         
         configurateFor(imagesize: image.size)
+        
+
+        isBarHiden = .show
     }
     
       func configurateFor(imagesize: CGSize) {
@@ -164,19 +190,13 @@ class ImageScrolView: UIScrollView, UIScrollViewDelegate {
 
 
     }
-    
     //show buttons when tap, hide, when tap again
     @objc func handlerShowButtonsTap(sender: UITapGestureRecognizer) {
-        if case let navigation as UINavigationController = UIApplication.shared.windows.first?.rootViewController {
-            for vc in navigation.viewControllers {
-                if case let myVC as SingleImageViewController = vc {
-                    myVC.handleShowOrHideButtons(choice: isBarHiden)
-                    isBarHiden = isBarHiden == .hide ? .show : .hide
-                    break
-                }
-            }
+        if case let vc as SingleImageViewController = rootViewController {
+            vc.handleShowOrHideButtons(choice: isBarHiden)
+            isBarHiden = (isBarHiden == .show) ? .hide : .show
         }
     }
-
-    
 }
+
+

@@ -8,30 +8,41 @@
 import UIKit
 
 class SingleImageViewController: UIViewController {
-    
-    //let navigationBar = UINavigationBar()
+    lazy var backButton: UIButton = {
+        let button = UIButton(type: .close, primaryAction: UIAction(handler: {
+            [weak self] (action) in
+            self?.dismiss(animated: true, completion: nil)
+        }))
+        
+        button.sizeToFit()
+        button.frame.origin = CGPoint(x: 20, y: 40)
+        
+        return button
+    }()
+
     var imageScrollView: ImageScrolView!
     var image: UIImage!
     
     fileprivate func configurateScrolView() {
-        imageScrollView = ImageScrolView(frame: view.bounds)
+        imageScrollView = ImageScrolView(frame: view.bounds, rootViewController: self as UIViewController)
         view.addSubview(imageScrollView)
-        
+        view.addSubview(backButton)
         setupImageScrollView()
         imageScrollView.set(image: image)
     }
-    
+    lazy var item: DispatchWorkItem = {
+        return DispatchWorkItem {
+            self.handleShowOrHideButtons(choice: .hide)
+
+        }
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) {
-            self.updateStatusBarAppearance(hidden: true)
-        }
         view.backgroundColor = .white
-        configurateNavigationBar()
         configurateScrolView()
-        navigationController?.navigationBar.isHidden = true
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeVC(sender:)))
-        //UINavigationBarAppearance
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: item)
+
     }
     
     
@@ -49,13 +60,12 @@ extension SingleImageViewController {
     }
 }
 extension SingleImageViewController {
-    func configurateNavigationBar() {
-        //navigationBar.backgroundColor = UIColor(displayP3Red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        //navigationBar.items?.append(UINavigationItem())
-        //navigationBar.i
+        imageScrollView.configurateFor(imagesize: image.size)
     }
-    
     func setupImageScrollView() {
         imageScrollView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -63,7 +73,6 @@ extension SingleImageViewController {
         imageScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         imageScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         imageScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-
     }
 }
 
@@ -76,17 +85,27 @@ extension SingleImageViewController {
     func handleShowOrHideButtons(choice: ButtonShowOrHideChoice) {
         if choice == .show {
             //Show buttons and status bar
+            item.cancel()
+            UIButton.animate(withDuration: 0.3) {
+                self.backButton.alpha = 1.0
+                
+            }
+            backButton.isUserInteractionEnabled = true
+
             updateStatusBarAppearance(hidden: false)
             return
         } else if choice == .hide {
+            item.cancel()
             //Hide buttons and status bar
+            UIButton.animate(withDuration: 0.3) {
+                self.backButton.alpha = 0.0
+            }
+            backButton.isUserInteractionEnabled = false
             updateStatusBarAppearance(hidden: true )
             return
         }
     }
-    
 }
-
 
 //MARK: - Status bar
 protocol StatusBarAnimationViewController: class {

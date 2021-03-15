@@ -29,7 +29,7 @@ extension AlbumViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(200.0))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
         let layout = UICollectionViewCompositionalLayout(section: section)
@@ -98,7 +98,6 @@ extension AlbumViewController {
         let viewController = SingleImageViewController()
         viewController.image = image
         viewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(viewController, animated: true)
-        //present(viewController, animated: true, completion: nil)
+        present(viewController, animated: true, completion: nil)
     }
 }

@@ -14,9 +14,9 @@ class MyUmageView: UIImageView {
         //open the picture for viewe
         
         if case let navigation as UINavigationController = UIApplication.shared.windows.first?.rootViewController,
-           case let vc as AlbumViewController = navigation.viewControllers.first {
+           case let currentViewController as AlbumViewController = navigation.viewControllers.first {
             guard let showingImage = self.image else { return }
-            vc.presentSingleImageVC(image: showingImage)
+            currentViewController.presentSingleImageVC(image: showingImage)
         }
         
     }
