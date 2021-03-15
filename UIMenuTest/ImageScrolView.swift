@@ -13,13 +13,7 @@ class ImageScrolView: UIScrollView, UIScrollViewDelegate {
     
     weak var rootViewController: UIViewController?
 
-    var isBarHiden: SingleImageViewController.ButtonShowOrHideChoice = .show {
-        willSet {
-            if newValue == .show {
-                
-            }
-        }
-    }
+    var isBarHiden: SingleImageViewController.ButtonShowOrHideChoice = .show
         
     var imageZoomView: UIImageView?
     
