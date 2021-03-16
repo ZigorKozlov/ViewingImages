@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  UIMenuTest
+
+  Created by Игорь Козлов on 16.03.2021.
+  
+*/
+
+"Album" = "Альбом";
+"Copy" = "Скопировать";
+"Share" = "Поделиться";
+"Options" = "Дополнительно";

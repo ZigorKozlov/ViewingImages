@@ -17,7 +17,7 @@ class AlbumViewController: UIViewController {
     private var dataSource: UICollectionViewDiffableDataSource<Section, Animal>!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Album"
+        self.navigationItem.title = NSLocalizedString("Album", comment: "")
         configurateHierarchy()
         configurateDataSource()
     }
@@ -78,11 +78,11 @@ extension AlbumViewController: UICollectionViewDelegate {
     private func configurateContextMenu(indexPath: IndexPath) -> UIContextMenuConfiguration {
         let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
             
-            let copy = UIAction(title: "Copy", image: UIImage(systemName: "doc.on.doc"), identifier: nil, discoverabilityTitle: nil, state: .off) { (action) in
+            let copy = UIAction(title: NSLocalizedString("Copy", comment: ""), image: UIImage(systemName: "doc.on.doc"), identifier: nil, discoverabilityTitle: nil, state: .off) { (action) in
                 print("COPY")
             }
             
-            let share = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up"), identifier: nil, discoverabilityTitle: nil, state: .off) { [weak self] (action) in
+            let share = UIAction(title: NSLocalizedString("Share", comment: ""), image: UIImage(systemName: "square.and.arrow.up"), identifier: nil, discoverabilityTitle: nil, state: .off) { [weak self] (action) in
                 if let image = UIImage(named: animals[indexPath.row].name){
                     let items: [Any] = [image]
                     self?.activityViewCOntroller = UIActivityViewController(activityItems: items, applicationActivities: nil)
@@ -92,7 +92,7 @@ extension AlbumViewController: UICollectionViewDelegate {
                 }
             }
             
-            return UIMenu(title: "Options", image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [copy, share])
+            return UIMenu(title: NSLocalizedString("Options", comment: ""), image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [copy, share])
         }
         return context
     }

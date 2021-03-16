@@ -28,6 +28,8 @@
 		769E29A025FFE29E00A35BB1 /* gachi2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 769E299D25FFE29E00A35BB1 /* gachi2.jpeg */; };
 		769E29A125FFE29E00A35BB1 /* gachi3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 769E299E25FFE29E00A35BB1 /* gachi3.jpeg */; };
 		769E29A225FFE29E00A35BB1 /* gachi1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 769E299F25FFE29E00A35BB1 /* gachi1.jpeg */; };
+		76D872EB26002EF8009951A2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76D872ED26002EF8009951A2 /* Localizable.strings */; };
+		76D872F52600304F009951A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76D872F72600304F009951A2 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +39,7 @@
 		7663B54125FE5B4D0004F645 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		7663B54625FE5B4D0004F645 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7663B54925FE5B4D0004F645 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7663B54B25FE5B4D0004F645 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7663B54B25FE5B4D0004F645 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/default/Info.plist"; sourceTree = "<absolute>"; };
 		7663B55425FE66F40004F645 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		7663B55725FE6F070004F645 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7663B55F25FE70B80004F645 /* spider.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = spider.jpg; path = ../../../../../Downloads/spider.jpg; sourceTree = "<group>"; };
@@ -54,6 +56,11 @@
 		769E299D25FFE29E00A35BB1 /* gachi2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = gachi2.jpeg; path = ../../../../../Downloads/gachi2.jpeg; sourceTree = "<group>"; };
 		769E299E25FFE29E00A35BB1 /* gachi3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = gachi3.jpeg; path = ../../../../../Downloads/gachi3.jpeg; sourceTree = "<group>"; };
 		769E299F25FFE29E00A35BB1 /* gachi1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = gachi1.jpeg; path = ../../../../../Downloads/gachi1.jpeg; sourceTree = "<group>"; };
+		76D872E926002EEF009951A2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		76D872EC26002EF8009951A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		76D872EF26002EFA009951A2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		76D872F62600304F009951A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		76D872F926003052009951A2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,18 +93,13 @@
 		7663B53C25FE5B4D0004F645 /* UIMenuTest */ = {
 			isa = PBXGroup;
 			children = (
-				7663B53D25FE5B4D0004F645 /* AppDelegate.swift */,
-				7663B53F25FE5B4D0004F645 /* SceneDelegate.swift */,
-				7663B54125FE5B4D0004F645 /* AlbumViewController.swift */,
-				7663B55725FE6F070004F645 /* Model.swift */,
-				7663B55425FE66F40004F645 /* AlbumCell.swift */,
-				7663B59625FEB94B0004F645 /* MyUmageView.swift */,
-				7663B59B25FEC80A0004F645 /* SingleImageViewController.swift */,
-				7663B59E25FECD360004F645 /* ImageScrolView.swift */,
-				7663B54625FE5B4D0004F645 /* Assets.xcassets */,
-				7663B54825FE5B4D0004F645 /* LaunchScreen.storyboard */,
-				7663B54B25FE5B4D0004F645 /* Info.plist */,
+				76D872ED26002EF8009951A2 /* Localizable.strings */,
+				76C08BF326000B74003EBFFF /* SingleImage */,
+				76C08BF026000B41003EBFFF /* default */,
+				76C08BF526000BA4003EBFFF /* Model */,
+				76C08BF426000B92003EBFFF /* MainScrolView */,
 				7663B55A25FE70800004F645 /* Pictures */,
+				76D872F72600304F009951A2 /* InfoPlist.strings */,
 			);
 			path = UIMenuTest;
 			sourceTree = "<group>";
@@ -118,6 +120,46 @@
 				769E299E25FFE29E00A35BB1 /* gachi3.jpeg */,
 			);
 			path = Pictures;
+			sourceTree = "<group>";
+		};
+		76C08BF026000B41003EBFFF /* default */ = {
+			isa = PBXGroup;
+			children = (
+				7663B54B25FE5B4D0004F645 /* Info.plist */,
+				7663B54625FE5B4D0004F645 /* Assets.xcassets */,
+				7663B54825FE5B4D0004F645 /* LaunchScreen.storyboard */,
+				7663B53F25FE5B4D0004F645 /* SceneDelegate.swift */,
+				7663B53D25FE5B4D0004F645 /* AppDelegate.swift */,
+			);
+			name = default;
+			path = UIMenuTest/default;
+			sourceTree = SOURCE_ROOT;
+		};
+		76C08BF326000B74003EBFFF /* SingleImage */ = {
+			isa = PBXGroup;
+			children = (
+				7663B59B25FEC80A0004F645 /* SingleImageViewController.swift */,
+				7663B59E25FECD360004F645 /* ImageScrolView.swift */,
+			);
+			path = SingleImage;
+			sourceTree = "<group>";
+		};
+		76C08BF426000B92003EBFFF /* MainScrolView */ = {
+			isa = PBXGroup;
+			children = (
+				7663B54125FE5B4D0004F645 /* AlbumViewController.swift */,
+				7663B59625FEB94B0004F645 /* MyUmageView.swift */,
+				7663B55425FE66F40004F645 /* AlbumCell.swift */,
+			);
+			path = MainScrolView;
+			sourceTree = "<group>";
+		};
+		76C08BF526000BA4003EBFFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7663B55725FE6F070004F645 /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +203,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 7663B53125FE5B4D0004F645;
 			productRefGroup = 7663B53B25FE5B4D0004F645 /* Products */;
@@ -180,6 +223,8 @@
 				7663B56B25FE70B80004F645 /* goat.jpg in Resources */,
 				7663B56825FE70B80004F645 /* bird.jpg in Resources */,
 				7663B56D25FE70B80004F645 /* cat.jpg in Resources */,
+				76D872EB26002EF8009951A2 /* Localizable.strings in Resources */,
+				76D872F52600304F009951A2 /* InfoPlist.strings in Resources */,
 				7663B56E25FE70B80004F645 /* tiger.jpg in Resources */,
 				769E29A125FFE29E00A35BB1 /* gachi3.jpeg in Resources */,
 				7663B54A25FE5B4D0004F645 /* LaunchScreen.storyboard in Resources */,
@@ -218,8 +263,27 @@
 			isa = PBXVariantGroup;
 			children = (
 				7663B54925FE5B4D0004F645 /* Base */,
+				76D872E926002EEF009951A2 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		76D872ED26002EF8009951A2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				76D872EC26002EF8009951A2 /* en */,
+				76D872EF26002EFA009951A2 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		76D872F72600304F009951A2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				76D872F62600304F009951A2 /* en */,
+				76D872F926003052009951A2 /* ru */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -229,6 +293,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -290,6 +355,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -348,7 +414,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PS9RXJ7LL5;
-				INFOPLIST_FILE = UIMenuTest/Info.plist;
+				INFOPLIST_FILE = UIMenuTest/default/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -367,7 +433,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PS9RXJ7LL5;
-				INFOPLIST_FILE = UIMenuTest/Info.plist;
+				INFOPLIST_FILE = UIMenuTest/default/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
