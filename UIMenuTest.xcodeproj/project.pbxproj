@@ -37,7 +37,7 @@
 		7663B53D25FE5B4D0004F645 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7663B53F25FE5B4D0004F645 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7663B54125FE5B4D0004F645 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
-		7663B54625FE5B4D0004F645 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7663B54625FE5B4D0004F645 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/default/Assets.xcassets"; sourceTree = "<absolute>"; };
 		7663B54925FE5B4D0004F645 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7663B54B25FE5B4D0004F645 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/default/Info.plist"; sourceTree = "<absolute>"; };
 		7663B55425FE66F40004F645 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
@@ -93,13 +93,13 @@
 		7663B53C25FE5B4D0004F645 /* UIMenuTest */ = {
 			isa = PBXGroup;
 			children = (
-				76D872ED26002EF8009951A2 /* Localizable.strings */,
+				7663B54B25FE5B4D0004F645 /* Info.plist */,
+				76D00F1226027002002B95EC /* Loclization */,
 				76C08BF326000B74003EBFFF /* SingleImage */,
 				76C08BF026000B41003EBFFF /* default */,
 				76C08BF526000BA4003EBFFF /* Model */,
 				76C08BF426000B92003EBFFF /* MainScrolView */,
 				7663B55A25FE70800004F645 /* Pictures */,
-				76D872F72600304F009951A2 /* InfoPlist.strings */,
 			);
 			path = UIMenuTest;
 			sourceTree = "<group>";
@@ -125,7 +125,6 @@
 		76C08BF026000B41003EBFFF /* default */ = {
 			isa = PBXGroup;
 			children = (
-				7663B54B25FE5B4D0004F645 /* Info.plist */,
 				7663B54625FE5B4D0004F645 /* Assets.xcassets */,
 				7663B54825FE5B4D0004F645 /* LaunchScreen.storyboard */,
 				7663B53F25FE5B4D0004F645 /* SceneDelegate.swift */,
@@ -161,6 +160,16 @@
 			);
 			path = Model;
 			sourceTree = "<group>";
+		};
+		76D00F1226027002002B95EC /* Loclization */ = {
+			isa = PBXGroup;
+			children = (
+				76D872ED26002EF8009951A2 /* Localizable.strings */,
+				76D872F72600304F009951A2 /* InfoPlist.strings */,
+			);
+			name = Loclization;
+			path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/Loclization";
+			sourceTree = "<absolute>";
 		};
 /* End PBXGroup section */
 
@@ -275,7 +284,8 @@
 				76D872EF26002EFA009951A2 /* ru */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
+			path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/Loclization";
+			sourceTree = "<absolute>";
 		};
 		76D872F72600304F009951A2 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -284,7 +294,8 @@
 				76D872F926003052009951A2 /* ru */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
+			path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/Loclization";
+			sourceTree = "<absolute>";
 		};
 /* End PBXVariantGroup section */
 

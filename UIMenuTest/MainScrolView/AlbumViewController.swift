@@ -40,7 +40,7 @@ extension AlbumViewController {
     private func configurateHierarchy() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayut())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .systemGroupedBackground
         collectionView.delegate = self
         collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: AlbumCell.reuseIdetifire)
         view.addSubview(collectionView)

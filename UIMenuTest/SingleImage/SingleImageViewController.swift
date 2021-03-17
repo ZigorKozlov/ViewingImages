@@ -14,6 +14,9 @@ class SingleImageViewController: UIViewController {
             self?.dismiss(animated: true, completion: nil)
         }))
         
+        button.backgroundColor = .systemGray
+        button.layer.cornerRadius = button.layer.frame.height 
+        button.clipsToBounds = false
         button.sizeToFit()
         button.frame.origin = CGPoint(x: 20, y: 40)
         
@@ -38,7 +41,7 @@ class SingleImageViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGroupedBackground
         configurateScrolView()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: item)
