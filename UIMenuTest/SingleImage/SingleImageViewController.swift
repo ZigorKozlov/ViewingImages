@@ -8,6 +8,19 @@
 import UIKit
 
 class SingleImageViewController: UIViewController {
+    
+    lazy var swipeGestureRecognizer: UISwipeGestureRecognizer = {
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action:#selector(swipeSelector))
+        swipeGestureRecognizer.direction = [.down]
+        
+        return swipeGestureRecognizer
+    }()
+    
+    @objc func swipeSelector(gesture: UISwipeGestureRecognizer ) {
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
     lazy var backButton: UIButton = {
         let button = UIButton(type: .close, primaryAction: UIAction(handler: {
             [weak self] (action) in
@@ -33,17 +46,17 @@ class SingleImageViewController: UIViewController {
         setupImageScrollView()
         imageScrollView.set(image: image)
     }
+    
     lazy var item: DispatchWorkItem = {
         return DispatchWorkItem {
             self.handleShowOrHideButtons(choice: .hide)
-
         }
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGroupedBackground
         configurateScrolView()
-        
+        view.addGestureRecognizer(swipeGestureRecognizer)
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: item)
 
     }
@@ -139,3 +152,5 @@ extension SingleImageViewController: StatusBarAnimationViewController {
     }
     
 }
+
+

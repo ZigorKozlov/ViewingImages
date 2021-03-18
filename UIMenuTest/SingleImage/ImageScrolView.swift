@@ -9,8 +9,6 @@ import UIKit
 
 class ImageScrolView: UIScrollView, UIScrollViewDelegate {
     
-
-    
     weak var rootViewController: UIViewController?
 
     var isBarHiden: SingleImageViewController.ButtonShowOrHideChoice = .show
@@ -23,7 +21,6 @@ class ImageScrolView: UIScrollView, UIScrollViewDelegate {
     required init(frame: CGRect, rootViewController: UIViewController) {
         super.init(frame: frame)
         self.rootViewController = rootViewController
-        
     }
     
     required init?(coder: NSCoder) {
