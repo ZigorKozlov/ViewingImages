@@ -21,6 +21,7 @@ class ImageScrolView: UIScrollView, UIScrollViewDelegate {
     required init(frame: CGRect, rootViewController: UIViewController) {
         super.init(frame: frame)
         self.rootViewController = rootViewController
+        
     }
     
     required init?(coder: NSCoder) {
@@ -110,7 +111,7 @@ class ImageScrolView: UIScrollView, UIScrollViewDelegate {
         
     }
     
-     func  setCenterImage() { // Функция должна срабатывать каждый раз когда опускаем палец называется она layoutSubviews
+    func  setCenterImage(animated: Bool) { // Функция должна срабатывать каждый раз когда опускаем палец называется она layoutSubviews
         let boundsSize = self.bounds.size
         var frameCenter = imageZoomView?.frame ?? CGRect.zero
         
@@ -125,12 +126,19 @@ class ImageScrolView: UIScrollView, UIScrollViewDelegate {
         } else {
             frameCenter.origin.y = 0
         }
+        if animated {
+            UIView.animate(withDuration: 0.3) {
+                [weak self] in
+                self?.imageZoomView?.frame = frameCenter
+            }
+        } else {
+            imageZoomView?.frame = frameCenter
+        }
         
-        imageZoomView?.frame = frameCenter
     }
     
     override func layoutSubviews() {
-        self.setCenterImage()
+        self.setCenterImage(animated: false)
     }
 
 
@@ -148,7 +156,7 @@ class ImageScrolView: UIScrollView, UIScrollViewDelegate {
         let finalScale = (currentScale == minScale) ? toScale : minScale
         let zoomRect = self.zooRect(scale: finalScale, center: point)
         
-        zoom(to: zoomRect, animated: animated)
+        zoom(to: zoomRect, animated: animated )
         
     }
     
@@ -171,7 +179,7 @@ class ImageScrolView: UIScrollView, UIScrollViewDelegate {
     }
     
      func scrollViewDidZoom(_ scrollView: UIScrollView) {//ЧТо бы возвращалось через центр, а не через верхний левый угол
-        self.setCenterImage()
+        self.setCenterImage(animated: false)
     }
     
     //MARK: - OBJ selectors gesture

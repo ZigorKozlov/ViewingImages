@@ -17,6 +17,7 @@ class AlbumViewController: UIViewController {
     private var dataSource: UICollectionViewDiffableDataSource<Section, Animal>!
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         self.navigationItem.title = NSLocalizedString("Album", comment: "")
         configurateHierarchy()
         configurateDataSource()
@@ -103,7 +104,7 @@ extension AlbumViewController {
     func presentSingleImageVC(image: UIImage) {
         let viewController = SingleImageViewController()
         viewController.image = image
-        viewController.modalPresentationStyle = .fullScreen
+        viewController.modalPresentationStyle = .overCurrentContext //
         present(viewController, animated: true, completion: nil)
     }
 }
