@@ -8,7 +8,6 @@
 import UIKit
 
 class AlbumViewController: UIViewController {
-    var testView: UIView!
     
     var activityViewCOntroller: UIActivityViewController?
     private enum Section {
@@ -107,6 +106,7 @@ extension AlbumViewController {
         let viewController = SingleImageViewController()
         viewController.image = image
         viewController.inputImageRect = imageRect
+
         viewController.modalPresentationStyle = .overCurrentContext //
         present(viewController, animated: true, completion: nil)
     }

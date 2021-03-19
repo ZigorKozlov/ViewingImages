@@ -9,6 +9,9 @@ import UIKit
 
 class SingleImageViewController: UIViewController {
     
+    deinit {
+        print("SSUUUUU")
+    }
     var inputImageRect: CGRect!
     var transpatancy:CGFloat = 1.0
     var gestureOffset: CGFloat = 0.0
@@ -106,8 +109,8 @@ extension SingleImageViewController {
         
         case .ended:
             if abs( gestureOffset ) > 60 {
-                animateCloce()
-                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300))  {
+                animateClose()
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(350))  {
                     [weak self] in
                     self?.dismiss(animated: false, completion: nil)
                 }
@@ -190,17 +193,26 @@ extension SingleImageViewController {
 
     }
     
-    func animateCloce() {
-        setColorsWith(alpha: 0.0, animated: true, duration: 0.3)
-        UIView.animate(withDuration: 0.3) {
+    func animateClose() {
+        setColorsWith(alpha: 0.0, animated: true, duration: 0.2)
+
+        UIView.animate(withDuration: 0.35) {
             [weak self] in
             self?.backButton.alpha = 0.0
-                        
-            self?.imageScrollView.imageZoomView?.frame.origin.x = self?.inputImageRect.origin.x ?? 0.0
-            self?.imageScrollView.imageZoomView?.frame.origin.y = self?.inputImageRect.origin.y ?? 0.0
-            
+
+            self?.imageScrollView.imageZoomView?.frame.origin.x = (self?.inputImageRect.origin.x ?? 1.0)
+            self?.imageScrollView.imageZoomView?.frame.origin.y = (self?.inputImageRect.origin.y ?? 1.0)
+           // self?.imageScrollView.imageZoomView?.frame.size.height = self?.inputImageRect.height ?? 0.0
+            //self?.imageScrollView.imageZoomView?.frame.size.width = self?.inputImageRect.width ?? 0.0
+//            let xOffset = CGFloat( (self?.inputImageRect.origin.x ?? 1.0) - (self?.imageScrollView.imageZoomView?.frame.origin.x ?? 0.0) )
+//            let yOffset = CGFloat( (self?.inputImageRect.origin.y ?? 1.0) - (self?.imageScrollView.imageZoomView?.frame.origin.y ?? 0.0))
+//            print(xOffset)
+//            print(yOffset)
+//            //a, c - scale x; b,d  -scale y; tx, ty = offset center
+//            self?.imageScrollView.imageZoomView?.transform = CGAffineTransform(translationX: xOffset, y: yOffset)
 
         }
+       
     }
 }
 

@@ -16,18 +16,11 @@ class MyUmageView: UIImageView {
         if case let navigation as UINavigationController = UIApplication.shared.windows.first?.rootViewController,
            case let currentViewController as AlbumViewController = navigation.viewControllers.first {
             guard let showingImage = self.image else { return }
+            let resultFrame = self.convert(frame, to: self.window)
             
-            let imageRect = self.convert(self.frame, to: currentViewController.view)
-            currentViewController.presentSingleImageVC(image: showingImage, imageRect: imageRect)
+            currentViewController.presentSingleImageVC(image: showingImage, imageRect: resultFrame)
         }
         
     }
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
