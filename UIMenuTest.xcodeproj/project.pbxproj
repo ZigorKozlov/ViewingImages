@@ -30,6 +30,7 @@
 		769E29A225FFE29E00A35BB1 /* gachi1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 769E299F25FFE29E00A35BB1 /* gachi1.jpeg */; };
 		76D872EB26002EF8009951A2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76D872ED26002EF8009951A2 /* Localizable.strings */; };
 		76D872F52600304F009951A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76D872F72600304F009951A2 /* InfoPlist.strings */; };
+		76D8E1F8260439BD00828D09 /* UIClorExtasionForSupportDarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8E1F7260439BD00828D09 /* UIClorExtasionForSupportDarkTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		76D872EF26002EFA009951A2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		76D872F62600304F009951A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		76D872F926003052009951A2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		76D8E1F7260439BD00828D09 /* UIClorExtasionForSupportDarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIClorExtasionForSupportDarkTheme.swift; path = ../SingleImage/UIClorExtasionForSupportDarkTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +95,7 @@
 		7663B53C25FE5B4D0004F645 /* UIMenuTest */ = {
 			isa = PBXGroup;
 			children = (
-				7663B54B25FE5B4D0004F645 /* Info.plist */,
+				76D8E1FA260439D400828D09 /* ExtesionsBase */,
 				76D00F1226027002002B95EC /* Loclization */,
 				76C08BF326000B74003EBFFF /* SingleImage */,
 				76C08BF026000B41003EBFFF /* default */,
@@ -126,6 +128,7 @@
 		76C08BF026000B41003EBFFF /* default */ = {
 			isa = PBXGroup;
 			children = (
+				7663B54B25FE5B4D0004F645 /* Info.plist */,
 				7663B54625FE5B4D0004F645 /* Assets.xcassets */,
 				7663B54825FE5B4D0004F645 /* LaunchScreen.storyboard */,
 				7663B53F25FE5B4D0004F645 /* SceneDelegate.swift */,
@@ -174,6 +177,14 @@
 			name = Loclization;
 			path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/Loclization";
 			sourceTree = "<absolute>";
+		};
+		76D8E1FA260439D400828D09 /* ExtesionsBase */ = {
+			isa = PBXGroup;
+			children = (
+				76D8E1F7260439BD00828D09 /* UIClorExtasionForSupportDarkTheme.swift */,
+			);
+			path = ExtesionsBase;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -265,6 +276,7 @@
 				7663B59F25FECD360004F645 /* ImageScrolView.swift in Sources */,
 				7663B53E25FE5B4D0004F645 /* AppDelegate.swift in Sources */,
 				7663B54025FE5B4D0004F645 /* SceneDelegate.swift in Sources */,
+				76D8E1F8260439BD00828D09 /* UIClorExtasionForSupportDarkTheme.swift in Sources */,
 				7663B55525FE66F40004F645 /* AlbumCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
