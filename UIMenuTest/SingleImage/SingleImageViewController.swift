@@ -9,6 +9,7 @@ import UIKit
 
 class SingleImageViewController: UIViewController {
     
+    var inputImageRect: CGRect!
     var transpatancy:CGFloat = 1.0
     var gestureOffset: CGFloat = 0.0
     var imageScrollView: ImageScrolView!
@@ -101,18 +102,25 @@ extension SingleImageViewController {
         case .began:
             gestureOffset = 0.0
             transpatancy = 1.0
+            handleShowOrHideButtons(choice: .hide)
         case .changed:
             changedHandler(gesture) // ПО сути обнуляем смещение что бы не накапливалось))
         
         case .ended:
             if abs( gestureOffset ) > 60 {
-                dismiss(animated: true, completion: nil)
+                animateCloce()
+                dismiss(animated: false, completion: nil)
+                
             } else {
                 
                 imageScrollView.setCenterImage(animated: true)
                 transpatancy = 1.0
                 
                 setColorsWith(alpha: 1.0, animated: true)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1))  {
+                    [weak self] in
+                    self?.dismiss(animated: false, completion: nil)
+                }
             }
             
         case .cancelled:
@@ -120,6 +128,8 @@ extension SingleImageViewController {
             transpatancy = 1.0
             
             setColorsWith(alpha: 1.0, animated: true)
+            
+
             
         default:
             print("default")
@@ -150,7 +160,7 @@ extension SingleImageViewController {
         gesture.setTranslation(CGPoint.zero, in: view)
     }
     
-    private func setColorsWith(alpha: CGFloat, animated: Bool) {
+    private func setColorsWith(alpha: CGFloat, animated: Bool, duration: TimeInterval = 0.3) {
         var resultAlpha: CGFloat = 0.0
         if alpha > 1 {
             resultAlpha = 1.0
@@ -168,7 +178,7 @@ extension SingleImageViewController {
         let lightColor = UIColor(displayP3Red: 0.6, green: 0.6, blue: 0.6, alpha: resultAlpha)
         
         if animated {
-            UIView.animate(withDuration: 0.3) {
+            UIView.animate(withDuration: duration) {
                 [weak self] in
                 self?.view.backgroundColor = UIColor.myColorFor(light: lightColorV, dark: darkColorV)
                 self?.backButton.backgroundColor = UIColor.myColorFor(light: lightColor, dark: darkColor)
@@ -182,6 +192,16 @@ extension SingleImageViewController {
          
         }
 
+    }
+    
+    func animateCloce() {
+        setColorsWith(alpha: 0.0, animated: true, duration: 0.3)
+        UIView.animate(withDuration: 1.0) {
+            [weak self] in
+            self?.backButton.alpha = 0.0
+            self?.imageScrollView.imageZoomView?.frame = self?.inputImageRect ?? CGRect.zero
+        }
+        
     }
 }
 

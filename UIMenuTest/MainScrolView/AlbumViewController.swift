@@ -101,9 +101,10 @@ extension AlbumViewController: UICollectionViewDelegate {
 
 //show SingleVCRepository
 extension AlbumViewController {
-    func presentSingleImageVC(image: UIImage) {
+    func presentSingleImageVC(image: UIImage, imageRect: CGRect) {
         let viewController = SingleImageViewController()
         viewController.image = image
+        viewController.inputImageRect = imageRect
         viewController.modalPresentationStyle = .overCurrentContext //
         present(viewController, animated: true, completion: nil)
     }
