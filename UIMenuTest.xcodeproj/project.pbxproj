@@ -30,18 +30,19 @@
 		769E29A225FFE29E00A35BB1 /* gachi1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 769E299F25FFE29E00A35BB1 /* gachi1.jpeg */; };
 		76D872EB26002EF8009951A2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76D872ED26002EF8009951A2 /* Localizable.strings */; };
 		76D872F52600304F009951A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76D872F72600304F009951A2 /* InfoPlist.strings */; };
+		76D8E1E62604185500828D09 /* UIClorExtasionForSupportDarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8E1E52604185500828D09 /* UIClorExtasionForSupportDarkTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7663B53A25FE5B4D0004F645 /* UIMenuTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIMenuTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7663B53D25FE5B4D0004F645 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7663B53F25FE5B4D0004F645 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7663B54125FE5B4D0004F645 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		7663B53D25FE5B4D0004F645 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/default/AppDelegate.swift"; sourceTree = "<absolute>"; };
+		7663B53F25FE5B4D0004F645 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/default/SceneDelegate.swift"; sourceTree = "<absolute>"; };
+		7663B54125FE5B4D0004F645 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumViewController.swift; path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/MainScrolView/AlbumViewController.swift"; sourceTree = "<absolute>"; };
 		7663B54625FE5B4D0004F645 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/default/Assets.xcassets"; sourceTree = "<absolute>"; };
 		7663B54925FE5B4D0004F645 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7663B54B25FE5B4D0004F645 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/default/Info.plist"; sourceTree = "<absolute>"; };
-		7663B55425FE66F40004F645 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
-		7663B55725FE6F070004F645 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		7663B55425FE66F40004F645 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumCell.swift; path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/MainScrolView/AlbumCell.swift"; sourceTree = "<absolute>"; };
+		7663B55725FE6F070004F645 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Model.swift; path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/Model/Model.swift"; sourceTree = "<absolute>"; };
 		7663B55F25FE70B80004F645 /* spider.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = spider.jpg; path = ../../../../../Downloads/spider.jpg; sourceTree = "<group>"; };
 		7663B56025FE70B80004F645 /* bird.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bird.jpg; path = ../../../../../Downloads/bird.jpg; sourceTree = "<group>"; };
 		7663B56125FE70B80004F645 /* dolphin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = dolphin.jpg; path = ../../../../../Downloads/dolphin.jpg; sourceTree = "<group>"; };
@@ -50,9 +51,9 @@
 		7663B56425FE70B80004F645 /* snake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = snake.jpg; path = ../../../../../Downloads/snake.jpg; sourceTree = "<group>"; };
 		7663B56525FE70B80004F645 /* cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cat.jpg; path = ../../../../../Downloads/cat.jpg; sourceTree = "<group>"; };
 		7663B56625FE70B80004F645 /* tiger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tiger.jpg; path = ../../../../../Downloads/tiger.jpg; sourceTree = "<group>"; };
-		7663B59625FEB94B0004F645 /* MyUmageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUmageView.swift; sourceTree = "<group>"; };
-		7663B59B25FEC80A0004F645 /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
-		7663B59E25FECD360004F645 /* ImageScrolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrolView.swift; sourceTree = "<group>"; };
+		7663B59625FEB94B0004F645 /* MyUmageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyUmageView.swift; path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/MainScrolView/MyUmageView.swift"; sourceTree = "<absolute>"; };
+		7663B59B25FEC80A0004F645 /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SingleImageViewController.swift; path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/SingleImage/SingleImageViewController.swift"; sourceTree = "<absolute>"; };
+		7663B59E25FECD360004F645 /* ImageScrolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageScrolView.swift; path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/SingleImage/ImageScrolView.swift"; sourceTree = "<absolute>"; };
 		769E299D25FFE29E00A35BB1 /* gachi2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = gachi2.jpeg; path = ../../../../../Downloads/gachi2.jpeg; sourceTree = "<group>"; };
 		769E299E25FFE29E00A35BB1 /* gachi3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = gachi3.jpeg; path = ../../../../../Downloads/gachi3.jpeg; sourceTree = "<group>"; };
 		769E299F25FFE29E00A35BB1 /* gachi1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = gachi1.jpeg; path = ../../../../../Downloads/gachi1.jpeg; sourceTree = "<group>"; };
@@ -61,6 +62,7 @@
 		76D872EF26002EFA009951A2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		76D872F62600304F009951A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		76D872F926003052009951A2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		76D8E1E52604185500828D09 /* UIClorExtasionForSupportDarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIClorExtasionForSupportDarkTheme.swift; path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/ExtesionsBase/UIClorExtasionForSupportDarkTheme.swift"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				7663B54B25FE5B4D0004F645 /* Info.plist */,
+				76D8E1E52604185500828D09 /* UIClorExtasionForSupportDarkTheme.swift */,
 				76D00F1226027002002B95EC /* Loclization */,
 				76C08BF326000B74003EBFFF /* SingleImage */,
 				76C08BF026000B41003EBFFF /* default */,
@@ -119,8 +122,9 @@
 				769E299D25FFE29E00A35BB1 /* gachi2.jpeg */,
 				769E299E25FFE29E00A35BB1 /* gachi3.jpeg */,
 			);
-			path = Pictures;
-			sourceTree = "<group>";
+			name = Pictures;
+			path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/Pictures";
+			sourceTree = "<absolute>";
 		};
 		76C08BF026000B41003EBFFF /* default */ = {
 			isa = PBXGroup;
@@ -131,8 +135,8 @@
 				7663B53D25FE5B4D0004F645 /* AppDelegate.swift */,
 			);
 			name = default;
-			path = UIMenuTest/default;
-			sourceTree = SOURCE_ROOT;
+			path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/default";
+			sourceTree = "<absolute>";
 		};
 		76C08BF326000B74003EBFFF /* SingleImage */ = {
 			isa = PBXGroup;
@@ -140,8 +144,9 @@
 				7663B59B25FEC80A0004F645 /* SingleImageViewController.swift */,
 				7663B59E25FECD360004F645 /* ImageScrolView.swift */,
 			);
-			path = SingleImage;
-			sourceTree = "<group>";
+			name = SingleImage;
+			path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/SingleImage";
+			sourceTree = "<absolute>";
 		};
 		76C08BF426000B92003EBFFF /* MainScrolView */ = {
 			isa = PBXGroup;
@@ -150,16 +155,18 @@
 				7663B59625FEB94B0004F645 /* MyUmageView.swift */,
 				7663B55425FE66F40004F645 /* AlbumCell.swift */,
 			);
-			path = MainScrolView;
-			sourceTree = "<group>";
+			name = MainScrolView;
+			path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/MainScrolView";
+			sourceTree = "<absolute>";
 		};
 		76C08BF526000BA4003EBFFF /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				7663B55725FE6F070004F645 /* Model.swift */,
 			);
-			path = Model;
-			sourceTree = "<group>";
+			name = Model;
+			path = "/Users/igorkozlov/Documents/UIKit Test/UIContextMenuInUICollectionView/UIMenuTest/Model";
+			sourceTree = "<absolute>";
 		};
 		76D00F1226027002002B95EC /* Loclization */ = {
 			isa = PBXGroup;
@@ -261,6 +268,7 @@
 				7663B59F25FECD360004F645 /* ImageScrolView.swift in Sources */,
 				7663B53E25FE5B4D0004F645 /* AppDelegate.swift in Sources */,
 				7663B54025FE5B4D0004F645 /* SceneDelegate.swift in Sources */,
+				76D8E1E62604185500828D09 /* UIClorExtasionForSupportDarkTheme.swift in Sources */,
 				7663B55525FE66F40004F645 /* AlbumCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

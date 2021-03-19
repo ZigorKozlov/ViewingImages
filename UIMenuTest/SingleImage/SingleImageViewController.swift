@@ -25,53 +25,12 @@ class SingleImageViewController: UIViewController {
         return panGestureRecognizer
     }()
     
-    @objc func panGestureHandler(gesture: UIPanGestureRecognizer ) {
-        
-        
-        switch gesture.state {
-        case .began:
-            gestureOffset = gesture.translation(in: view).y
-            print("gestureOffset = \(gestureOffset)")
-        case .changed:
-            print("changed: = \(gesture.translation(in: view).y)")
-            imageScrollView.imageZoomView?.center.y += (gesture.translation(in: view).y)
-           
-            view.isOpaque = false
-            transpatancy -= abs( gesture.translation(in: view).y / 100 )
-                                    
-            view.backgroundColor = UIColor(displayP3Red: 0.95, green: 0.95, blue: 0.95, alpha: transpatancy)
-            
-            gesture.setTranslation(CGPoint.zero, in: view) // ПО сути обнуляем смещение что бы не накапливалось))
-        case .ended:
-            print("ended")
-            imageScrollView.setCenterImage(animated: true)
-            transpatancy = 1.0
-            UIView.animate(withDuration: 0.3) {
-                [weak self] in
-                self?.view.backgroundColor = UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 1.0)
-            }
-            
-            //imageScrollView.layoutIfNeeded()
-            
-        case .cancelled:
-            print("cancelled")
-            
-        default:
-            print("default")
-        }
-        
-        
-        //dismiss(animated: true, completion: nil)
-    }
-    
-    
     lazy var backButton: UIButton = {
         let button = UIButton(type: .close, primaryAction: UIAction(handler: {
             [weak self] (action) in
             self?.dismiss(animated: true, completion: nil)
         }))
         
-        button.backgroundColor = .systemGray
         button.layer.cornerRadius = button.layer.frame.height 
         button.clipsToBounds = false
         button.sizeToFit()
@@ -90,7 +49,8 @@ class SingleImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemGroupedBackground
+        setColorsWith(alpha: 1.0, animated: false)
+        
         configurateScrolView()
         view.addGestureRecognizer(panGestureRecognizer)
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5), execute: itemForHideButton)
@@ -134,7 +94,95 @@ extension SingleImageViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc func panGestureHandler(gesture: UIPanGestureRecognizer ) {
+        
+        
+        switch gesture.state {
+        case .began:
+            gestureOffset = 0.0
+            transpatancy = 1.0
+        case .changed:
+            changedHandler(gesture) // ПО сути обнуляем смещение что бы не накапливалось))
+        
+        case .ended:
+            if abs( gestureOffset ) > 90 {
+                dismiss(animated: true, completion: nil)
+            } else {
+                
+                imageScrollView.setCenterImage(animated: true)
+                transpatancy = 1.0
+                
+                setColorsWith(alpha: 1.0, animated: true)
+            }
+            
+        case .cancelled:
+            imageScrollView.setCenterImage(animated: true)
+            transpatancy = 1.0
+            
+            setColorsWith(alpha: 1.0, animated: true)
+            
+        default:
+            print("default")
+        }
+        //dismiss(animated: true, completion: nil)
+    }
+    
+    private func changedHandler(_ gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: view).y
+        
+        imageScrollView.imageZoomView?.center.y += translation //move image
+        
+        if gestureOffset > -30 && gestureOffset < 30 {
+            transpatancy = 1.0
+        } else {
+            //Обработать одновременно и gestureOffset и translation
+            if ((gestureOffset > 0 && translation > 0) || (gestureOffset < 0 && translation < 0)) {
+                transpatancy -= abs( translation / 100)
+            } else if (gestureOffset > 0 && translation < 0) || (gestureOffset < 0 && translation > 0) {
+                transpatancy += abs( translation / 100)
+            }
+        }
+        
+        setColorsWith(alpha: transpatancy, animated: false)
+        gestureOffset += translation //global offset
+        
+        
+        gesture.setTranslation(CGPoint.zero, in: view)
+    }
+    
+    private func setColorsWith(alpha: CGFloat, animated: Bool) {
+        var resultAlpha: CGFloat = 0.0
+        if alpha > 1 {
+            resultAlpha = 1.0
+        } else if alpha < 0 {
+            resultAlpha = 0.0
+        } else {
+            resultAlpha = alpha
+        }
+        
+        let darkColorV = UIColor(displayP3Red: 0.05, green: 0.05, blue: 0.05, alpha: resultAlpha)
+        let lightColorV = UIColor(displayP3Red: 0.96, green: 0.96, blue: 0.96, alpha: resultAlpha)
+        
+        
+        let darkColor = UIColor(displayP3Red: 0.4, green: 0.4, blue: 0.4, alpha: resultAlpha)
+        let lightColor = UIColor(displayP3Red: 0.6, green: 0.6, blue: 0.6, alpha: resultAlpha)
+        
+        if animated {
+            UIView.animate(withDuration: 0.3) {
+                [weak self] in
+                self?.view.backgroundColor = UIColor.myColorFor(light: lightColorV, dark: darkColorV)
+                self?.backButton.backgroundColor = UIColor.myColorFor(light: lightColor, dark: darkColor)
+                
 
+            }
+        } else {
+            view.backgroundColor = UIColor.myColorFor(light: lightColorV, dark: darkColorV)
+            backButton.backgroundColor = UIColor.myColorFor(light: lightColor, dark: darkColor)
+            
+         
+        }
+
+    }
 }
 
 
