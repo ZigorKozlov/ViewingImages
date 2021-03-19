@@ -105,7 +105,7 @@ extension SingleImageViewController {
             changedHandler(gesture) // ПО сути обнуляем смещение что бы не накапливалось))
         
         case .ended:
-            if abs( gestureOffset ) > 90 {
+            if abs( gestureOffset ) > 60 {
                 dismiss(animated: true, completion: nil)
             } else {
                 
