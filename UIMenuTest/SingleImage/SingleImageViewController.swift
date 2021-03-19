@@ -42,7 +42,8 @@ class SingleImageViewController: UIViewController {
     
     lazy var itemForHideButton: DispatchWorkItem = {
         return DispatchWorkItem {
-            self.handleShowOrHideButtons(choice: .hide)
+            [weak self] in
+            self?.handleShowOrHideButtons(choice: .hide)
         }
     }()
 
@@ -61,10 +62,7 @@ class SingleImageViewController: UIViewController {
         super.viewDidLayoutSubviews()
         imageScrollView.configurateFor(imagesize: image.size)
     }
-
 }
-
-
 
 //MARK: - Configurate ScrollSimgleImageView
 extension SingleImageViewController {
@@ -109,18 +107,18 @@ extension SingleImageViewController {
         case .ended:
             if abs( gestureOffset ) > 60 {
                 animateCloce()
-                dismiss(animated: false, completion: nil)
-                
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300))  {
+                    [weak self] in
+                    self?.dismiss(animated: false, completion: nil)
+                }
+                //dismiss(animated: true, completion: nil)
             } else {
                 
                 imageScrollView.setCenterImage(animated: true)
                 transpatancy = 1.0
                 
                 setColorsWith(alpha: 1.0, animated: true)
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1))  {
-                    [weak self] in
-                    self?.dismiss(animated: false, completion: nil)
-                }
+ 
             }
             
         case .cancelled:
@@ -128,8 +126,6 @@ extension SingleImageViewController {
             transpatancy = 1.0
             
             setColorsWith(alpha: 1.0, animated: true)
-            
-
             
         default:
             print("default")
@@ -196,12 +192,15 @@ extension SingleImageViewController {
     
     func animateCloce() {
         setColorsWith(alpha: 0.0, animated: true, duration: 0.3)
-        UIView.animate(withDuration: 1.0) {
+        UIView.animate(withDuration: 0.3) {
             [weak self] in
             self?.backButton.alpha = 0.0
-            self?.imageScrollView.imageZoomView?.frame = self?.inputImageRect ?? CGRect.zero
+                        
+            self?.imageScrollView.imageZoomView?.frame.origin.x = self?.inputImageRect.origin.x ?? 0.0
+            self?.imageScrollView.imageZoomView?.frame.origin.y = self?.inputImageRect.origin.y ?? 0.0
+            
+
         }
-        
     }
 }
 

@@ -8,6 +8,8 @@
 import UIKit
 
 class AlbumViewController: UIViewController {
+    var testView: UIView!
+    
     var activityViewCOntroller: UIActivityViewController?
     private enum Section {
         case main
