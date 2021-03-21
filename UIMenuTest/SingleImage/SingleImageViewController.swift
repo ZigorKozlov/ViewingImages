@@ -110,18 +110,12 @@ extension SingleImageViewController {
         case .ended:
             if abs( gestureOffset ) > 60 {
                 animateClose()
-                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(350))  {
-                    [weak self] in
-                    self?.dismiss(animated: false, completion: nil)
-                }
-                //dismiss(animated: true, completion: nil)
             } else {
                 
                 imageScrollView.setCenterImage(animated: true)
                 transpatancy = 1.0
                 
                 setColorsWith(alpha: 1.0, animated: true)
- 
             }
             
         case .cancelled:
@@ -133,7 +127,6 @@ extension SingleImageViewController {
         default:
             print("default")
         }
-        //dismiss(animated: true, completion: nil)
     }
     
     private func changedHandler(_ gesture: UIPanGestureRecognizer) {
@@ -208,8 +201,9 @@ extension SingleImageViewController {
         let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
         //scaleAnimation.fromValue // От currnt значения
         scaleAnimation.toValue = 0.0
-        scaleAnimation.duration = 0.4
+        scaleAnimation.duration = 0.38
         scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeIn)
+        scaleAnimation.delegate = self //dismiss VC, when finish animation
         
         let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
         rotationAnimation.fromValue = 0.0
@@ -220,35 +214,21 @@ extension SingleImageViewController {
         
         
         self.imageScrollView!.imageZoomView!.layer.add(positionAnimation, forKey: "position")
-        //.imageScrollView!.imageZoomView!.center = endPoint
+        self.imageScrollView!.imageZoomView!.center = endPoint
+        
         self.imageScrollView!.imageZoomView!.layer.add(rotationAnimation, forKey: "transform.rotation")
         self.imageScrollView!.imageZoomView!.layer.add(scaleAnimation, forKey: "transform.scale")
-        self.imageScrollView!.imageZoomView!.center = endPoint
-
-        /*
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: {
-            [weak self] in
-            self?.backButton.alpha = 0.0
-            
-            self?.imageScrollView.imageZoomView?.frame.origin.x = (self?.inputImageRect.origin.x  ?? 1.0) - 5
-            self?.imageScrollView.imageZoomView?.frame.origin.y = (self?.inputImageRect.origin.y ?? 1.0) - 5
-        }, completion: nil)
-        */
-        /*
-        private func createRotationAnimation(duration: Double) -> CABasicAnimation {
-            let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
-            rotationAnimation.fromValue = 0.0
-            rotationAnimation.toValue = Double.pi * 2
-            rotationAnimation.duration = duration
-            rotationAnimation.repeatCount = .infinity
-            rotationAnimation.timingFunction = CAMediaTimingFunction(name: .easeIn)
-            
-            return rotationAnimation
-        }
- */
     }
 }
 
+//MARK: - CADelegate
+extension SingleImageViewController: CAAnimationDelegate {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        if flag == true {
+            self.dismiss(animated: false, completion: nil)
+        }
+    }
+}
 
 extension SingleImageViewController {
     enum ButtonShowOrHideChoice {
