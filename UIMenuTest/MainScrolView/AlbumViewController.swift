@@ -27,6 +27,7 @@ class AlbumViewController: UIViewController {
 
 
 extension AlbumViewController {
+    
     private func createLayut() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -40,7 +41,9 @@ extension AlbumViewController {
     }
     
     private func configurateHierarchy() {
+        
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayut())
+        
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .systemGroupedBackground
         collectionView.delegate = self
@@ -106,7 +109,8 @@ extension AlbumViewController {
         let viewController = SingleImageViewController()
         viewController.image = image
         viewController.inputImageRect = imageRect
-
+        viewController.navigationBarOffset = navigationController?.navigationBar.frame.height
+        
         viewController.modalPresentationStyle = .overCurrentContext //
         present(viewController, animated: true, completion: nil)
     }

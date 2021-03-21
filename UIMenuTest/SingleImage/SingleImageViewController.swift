@@ -8,7 +8,7 @@
 import UIKit
 
 class SingleImageViewController: UIViewController {
-    
+    var navigationBarOffset: CGFloat!
     deinit {
         print("SSUUUUU")
     }
@@ -146,9 +146,9 @@ extension SingleImageViewController {
         } else {
             //Обработать одновременно и gestureOffset и translation
             if ((gestureOffset > 0 && translation > 0) || (gestureOffset < 0 && translation < 0)) {
-                transpatancy -= abs( translation / 100)
+                transpatancy -= abs( translation / 50)
             } else if (gestureOffset > 0 && translation < 0) || (gestureOffset < 0 && translation > 0) {
-                transpatancy += abs( translation / 100)
+                transpatancy += abs( translation / 50)
             }
         }
         
@@ -194,28 +194,60 @@ extension SingleImageViewController {
     }
     
     func animateClose() {
-        setColorsWith(alpha: 0.0, animated: true, duration: 0.2)
+        setColorsWith(alpha: 0.0, animated: true, duration: 0.3)
+        let startPoint = self.imageScrollView.imageZoomView!.center
 
-        UIView.animate(withDuration: 0.35) {
+        let endPoint = CGPoint(x: self.inputImageRect.origin.x  + (self.inputImageRect.width  / 2), y: self.inputImageRect.origin.y  - navigationBarOffset  + (self.inputImageRect.width / 2))
+        print(navigationBarOffset ?? 0.0)
+        let positionAnimation = CABasicAnimation(keyPath: "position")
+        positionAnimation.fromValue = NSValue(cgPoint: startPoint)
+        positionAnimation.toValue = NSValue(cgPoint: endPoint)
+        positionAnimation.duration = 0.3
+        positionAnimation.timingFunction = CAMediaTimingFunction(name: .easeIn)
+        
+        let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
+        //scaleAnimation.fromValue // От currnt значения
+        scaleAnimation.toValue = 0.0
+        scaleAnimation.duration = 0.4
+        scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeIn)
+        
+        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotationAnimation.fromValue = 0.0
+        rotationAnimation.toValue = Double.pi * 2
+        rotationAnimation.duration = 0.4
+        rotationAnimation.repeatCount = 2
+        rotationAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        
+        
+        self.imageScrollView!.imageZoomView!.layer.add(positionAnimation, forKey: "position")
+        //.imageScrollView!.imageZoomView!.center = endPoint
+        self.imageScrollView!.imageZoomView!.layer.add(rotationAnimation, forKey: "transform.rotation")
+        self.imageScrollView!.imageZoomView!.layer.add(scaleAnimation, forKey: "transform.scale")
+        self.imageScrollView!.imageZoomView!.center = endPoint
+
+        /*
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: {
             [weak self] in
             self?.backButton.alpha = 0.0
-
-            self?.imageScrollView.imageZoomView?.frame.origin.x = (self?.inputImageRect.origin.x ?? 1.0)
-            self?.imageScrollView.imageZoomView?.frame.origin.y = (self?.inputImageRect.origin.y ?? 1.0)
-           // self?.imageScrollView.imageZoomView?.frame.size.height = self?.inputImageRect.height ?? 0.0
-            //self?.imageScrollView.imageZoomView?.frame.size.width = self?.inputImageRect.width ?? 0.0
-//            let xOffset = CGFloat( (self?.inputImageRect.origin.x ?? 1.0) - (self?.imageScrollView.imageZoomView?.frame.origin.x ?? 0.0) )
-//            let yOffset = CGFloat( (self?.inputImageRect.origin.y ?? 1.0) - (self?.imageScrollView.imageZoomView?.frame.origin.y ?? 0.0))
-//            print(xOffset)
-//            print(yOffset)
-//            //a, c - scale x; b,d  -scale y; tx, ty = offset center
-//            self?.imageScrollView.imageZoomView?.transform = CGAffineTransform(translationX: xOffset, y: yOffset)
-
+            
+            self?.imageScrollView.imageZoomView?.frame.origin.x = (self?.inputImageRect.origin.x  ?? 1.0) - 5
+            self?.imageScrollView.imageZoomView?.frame.origin.y = (self?.inputImageRect.origin.y ?? 1.0) - 5
+        }, completion: nil)
+        */
+        /*
+        private func createRotationAnimation(duration: Double) -> CABasicAnimation {
+            let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
+            rotationAnimation.fromValue = 0.0
+            rotationAnimation.toValue = Double.pi * 2
+            rotationAnimation.duration = duration
+            rotationAnimation.repeatCount = .infinity
+            rotationAnimation.timingFunction = CAMediaTimingFunction(name: .easeIn)
+            
+            return rotationAnimation
         }
-       
+ */
     }
 }
-
 
 
 extension SingleImageViewController {
